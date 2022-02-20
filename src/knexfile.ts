@@ -8,10 +8,10 @@ const config: { [key: string]: Knex.Config } = {
   development: {
     client: "pg",
     connection: {
-      host: 'jelani.db.elephantsql.com',
-      user: 'fpaubmrk',
-      password: 'a1phV2lmWyDtjAEcQpxer71VlICylxRb',
-      database: 'fpaubmrk',
+      host: env.POSTGRES_HOST,
+      user: env.POSTGRES_USER,
+      password: env.POSTGRES_PASSWORD,
+      database: env.POSTGRES_DATABASE
     },
     pool: {
       min: 2,

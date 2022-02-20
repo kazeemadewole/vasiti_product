@@ -50,7 +50,10 @@ type IEnvironment = 'production' | 'staging' | 'development' | 'test';
 const config = {
   port: getEnvNumber('PORT'),
   environment: getEnvString('NODE_ENV') as IEnvironment,
-  POSTGRES_URL: getEnvString('POSTGRES_URL'),
+  POSTGRES_HOST: getEnvString('POSTGRES_HOST'),
+  POSTGRES_USER: getEnvString('POSTGRES_USER'),
+  POSTGRES_DATABASE: getEnvString('POSTGRES_DATABASE'),
+  POSTGRES_PASSWORD: getEnvString('POSTGRES_PASSWORD'),
 } as const;
 
 if (config.environment === 'development') {
