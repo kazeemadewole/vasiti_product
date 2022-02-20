@@ -1,5 +1,5 @@
 import { ObjectionModel } from "src/config/db";
-import {  DefinedTableNames  } from '../utils/constants';
+import {  DefinedTableNames, SchemaName  } from '../utils/constants';
 
 
 export interface IProductModel {
@@ -27,7 +27,7 @@ class productModel extends ObjectionModel implements IProductModel {
     date_uploaded!: string;
     date_edited!: string | null;
 
-   static tableName =  DefinedTableNames.PRODUCTS;
+   static tableName =  `${SchemaName}.${DefinedTableNames.PRODUCTS}`;
 }
 
 export default productModel

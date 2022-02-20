@@ -8,19 +8,26 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
-class ProductController {
-    constructor(productService) {
-        this.productService = productService;
+const product_service_1 = __importDefault(require("@services/product-service"));
+const productValidation_1 = require("src/validation/productValidation");
+const base_controller_1 = require("./base_controller");
+class ProductController extends base_controller_1.BaseController {
+    constructor() {
+        super();
     }
     getAllProduct(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
             try {
-                const allProducts = yield this.productService.getAll();
+                console.log('yeaahhhhhhhh*********');
+                const allProducts = yield new product_service_1.default().getAll();
                 return res.status(200).json(allProducts);
             }
             catch (error) {
-                return res.status(400).send('error occured');
+                return res.status(400).send({ status: false, message: error, data: {} });
             }
         });
     }
@@ -28,11 +35,11 @@ class ProductController {
         return __awaiter(this, void 0, void 0, function* () {
             try {
                 const id = req.params.id;
-                const product = yield this.productService.getProductById(id);
+                const product = yield new product_service_1.default().getProductById(id);
                 return res.status(200).json(product);
             }
             catch (error) {
-                return res.status(400).send('error occured');
+                return res.status(400).send({ status: false, message: error, data: {} });
             }
         });
     }
@@ -40,11 +47,31 @@ class ProductController {
         return __awaiter(this, void 0, void 0, function* () {
             try {
                 const product = req.body;
-                const savedProduct = yield this.productService.getProductById(id);
+                const error = yield this.validateRequest(product, productValidation_1.productValidation);
+                if (error) {
+                    return res.status(422).send({ status: false, message: error, data: {} });
+                }
+                const savedProduct = yield new product_service_1.default().saveProduct(product);
                 return res.status(200).json(product);
             }
             catch (error) {
-                return res.status(400).send('error occured');
+                return res.status(400).send({ status: false, message: error, data: {} });
+            }
+        });
+    }
+    updateProduct(req, res) {
+        return __awaiter(this, void 0, void 0, function* () {
+            try {
+                const product = req.body;
+                const error = yield this.validateRequest(product, productValidation_1.productValidation);
+                if (error) {
+                    return res.status(422).send({ status: false, message: error, data: {} });
+                }
+                const savedProduct = yield new product_service_1.default().editProduct(product);
+                return res.status(200).json(product);
+            }
+            catch (error) {
+                return res.status(400).send({ status: false, message: error, data: {} });
             }
         });
     }

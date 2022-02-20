@@ -25,7 +25,9 @@ export const p = {
  */
 router.get(p.get, async (_: Request, res: Response) => {
     const users = await userService.getAll();
-    return res.status(OK).json({users});
+    console.log('we got here');
+    
+    return res.status(OK).json({product: "we are here"});
 });
 
 

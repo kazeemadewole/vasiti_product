@@ -32,7 +32,8 @@ exports.p = {
  */
 router.get(exports.p.get, (_, res) => __awaiter(void 0, void 0, void 0, function* () {
     const users = yield user_service_1.default.getAll();
-    return res.status(OK).json({ users });
+    console.log('we got here');
+    return res.status(OK).json({ product: "we are here" });
 }));
 /**
  * Add one user.

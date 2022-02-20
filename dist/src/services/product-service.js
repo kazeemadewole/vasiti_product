@@ -8,33 +8,34 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
+const product_1 = __importDefault(require("src/repository/product"));
 class ProductService {
-    constructor(productRepository) {
-        this.productRepository = productRepository;
-    }
     getAll() {
         return __awaiter(this, void 0, void 0, function* () {
-            return yield this.productRepository.getAllProduct();
+            return yield new product_1.default().getAllProduct();
         });
     }
     getProductById(id) {
         return __awaiter(this, void 0, void 0, function* () {
-            return yield this.productRepository.getProductById(id);
+            return yield new product_1.default().getProductById(id);
         });
     }
     saveProduct(product) {
         return __awaiter(this, void 0, void 0, function* () {
-            return yield this.productRepository.saveProduct(product);
+            return yield new product_1.default().saveProduct(product);
         });
     }
-    editProduct(id, product) {
+    editProduct(product) {
         return __awaiter(this, void 0, void 0, function* () {
-            const dataInDb = yield this.getProductById(id);
+            const dataInDb = yield this.getProductById(product.id);
             if (!dataInDb) {
                 throw new Error('Product item does not exist');
             }
-            return yield this.productRepository.editProduct(id, product);
+            return yield new product_1.default().editProduct(product.id, product);
         });
     }
 }

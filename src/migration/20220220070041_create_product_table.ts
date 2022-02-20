@@ -1,8 +1,11 @@
 import  {Knex}  from "knex";
-import { DefinedTableNames, SchemaName } from "src/utils/constants";
+import { DefinedTableNames, SchemaName } from "../utils/constants";
 
 
 export async function up(knex: Knex): Promise<void> {
+
+    await knex.schema.raw(`CREATE SCHEMA IF NOT EXISTS ${SchemaName};`);
+    
     return await knex.schema.withSchema(SchemaName).createTable(DefinedTableNames.PRODUCTS, (table)=> {
         table.uuid('id').primary();
         table.string('product_name').notNullable();
