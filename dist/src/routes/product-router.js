@@ -6,7 +6,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.p = void 0;
 const http_status_codes_1 = __importDefault(require("http-status-codes"));
 const express_1 = require("express");
-const product_controller_1 = __importDefault(require("src/controller/product_controller"));
+const product_controller_1 = __importDefault(require("../controller/product_controller"));
 // Constants
 const router = (0, express_1.Router)();
 const { CREATED, OK } = http_status_codes_1.default;

@@ -1,7 +1,7 @@
 import { IProductModel, IUpdateProductModel } from "@models/product-model";
 import ProductService from "@services/product-service";
 import { Request, Response } from "express";
-import { productValidation } from "src/validation/productValidation";
+import { productValidation } from "../validation/productValidation";
 import { BaseController } from "./base_controller";
 
 class ProductController extends BaseController{

@@ -1,4 +1,4 @@
-import { ObjectionModel } from "src/config/db";
+import { ObjectionModel } from "../config/db";
 import {  DefinedTableNames, SchemaName  } from '../utils/constants';
 
 

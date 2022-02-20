@@ -1,6 +1,5 @@
 import type { Knex } from "knex";
 import { Env } from './config/env';
-import path from 'path'
 import { UtilService } from "./utils/utilservice";
 
 const env = Env.all();

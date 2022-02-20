@@ -1,6 +1,6 @@
 import StatusCodes from 'http-status-codes';
 import { Router } from 'express'
-import ProductController from 'src/controller/product_controller';
+import ProductController from '../controller/product_controller';
 
 
 

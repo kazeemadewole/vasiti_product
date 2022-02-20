@@ -13,7 +13,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const product_service_1 = __importDefault(require("@services/product-service"));
-const productValidation_1 = require("src/validation/productValidation");
+const productValidation_1 = require("../validation/productValidation");
 const base_controller_1 = require("./base_controller");
 class ProductController extends base_controller_1.BaseController {
     constructor() {

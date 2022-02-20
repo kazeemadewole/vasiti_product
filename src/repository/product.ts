@@ -1,5 +1,5 @@
 import productModel, { IProductModel } from "@models/product-model";
-import { UtilService } from "src/utils/utilservice";
+import { UtilService } from "../utils/utilservice";
 
 
 class ProductRepository {
