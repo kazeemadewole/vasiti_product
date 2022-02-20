@@ -7,8 +7,10 @@ const config = {
     development: {
         client: "pg",
         connection: {
-            filename: env.POSTGRES_URL,
-            password: 'fpaubmrk:a1phV2lmWyDtjAEcQpxer71VlICylxRb'
+            host: env.POSTGRES_HOST,
+            user: env.POSTGRES_USER,
+            password: env.POSTGRES_PASSWORD,
+            database: env.POSTGRES_DATABASE
         },
         pool: {
             min: 2,

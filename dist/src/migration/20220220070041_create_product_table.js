@@ -10,9 +10,10 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.down = exports.up = void 0;
-const constants_1 = require("src/utils/constants");
+const constants_1 = require("../utils/constants");
 function up(knex) {
     return __awaiter(this, void 0, void 0, function* () {
+        yield knex.schema.raw(`CREATE SCHEMA IF NOT EXISTS ${constants_1.SchemaName};`);
         return yield knex.schema.withSchema(constants_1.SchemaName).createTable(constants_1.DefinedTableNames.PRODUCTS, (table) => {
             table.uuid('id').primary();
             table.string('product_name').notNullable();
