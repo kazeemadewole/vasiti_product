@@ -10,7 +10,6 @@ class ProductController extends BaseController{
     }
     async getAllProduct(req:Request, res: Response) {
         try {
-            console.log('yeaahhhhhhhh*********')
             const allProducts = await new ProductService().getAll()
             return res.status(200).json(allProducts)
         }catch(error) {

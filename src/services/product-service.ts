@@ -1,5 +1,5 @@
 import { IProductModel, IUpdateProductModel } from "@models/product-model"
-import ProductRepository from "src/repository/product"
+import ProductRepository from "../repository/product"
 
 class ProductService {
     
