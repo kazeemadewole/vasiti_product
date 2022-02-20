@@ -30,12 +30,16 @@ class ProductController extends BaseController{
     async createProduct(req:Request, res: Response) {
         try{
             const product: IProductModel = req.body;
-            const error = await this.validateRequest(product, productValidation);
-        if(error) {
-          return res.status(422).send({status: false, message: error, data: {} });
-        }
+            
+        //     const error = await this.validateRequest(product, productValidation);
+        // if(error) {
+        //     console.log(error);
+            
+        //   return res.status(422).send({status: false, message: error, data: {} });
+        // }
+        
             const savedProduct = await new ProductService().saveProduct(product);
-            return res.status(200).json(product)
+            return res.status(200).json(savedProduct)
         }catch(error){
             return res.status(400).send({status: false, message: error, data: {} })
         }
@@ -44,12 +48,12 @@ class ProductController extends BaseController{
     async updateProduct(req:Request, res: Response) {
         try{
             const product: IUpdateProductModel = req.body;
-            const error = await this.validateRequest(product, productValidation);
-        if(error) {
-          return res.status(422).send({status: false, message: error, data: {} });
-        }
+        //     const error = await this.validateRequest(product, productValidation);
+        // if(error) {
+        //   return res.status(422).send({status: false, message: error, data: {} });
+        // }
             const savedProduct = await new ProductService().editProduct(product)
-            return res.status(200).json(product)
+            return res.status(200).json(savedProduct)
         }catch(error){
             return res.status(400).send({status: false, message: error, data: {} })
         }

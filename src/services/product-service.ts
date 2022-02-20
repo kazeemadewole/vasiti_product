@@ -20,7 +20,11 @@ class ProductService {
         if(!dataInDb) {
             throw new Error('Product item does not exist')
         }
-        return await new ProductRepository().editProduct(product.id, product)
+        const dataToDb = {
+            ...product,
+            date_edited: new Date().toISOString()
+        }
+        return await new ProductRepository().editProduct(product.id, dataToDb)
 
     }
 }

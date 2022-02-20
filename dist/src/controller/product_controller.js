@@ -22,7 +22,6 @@ class ProductController extends base_controller_1.BaseController {
     getAllProduct(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
             try {
-                console.log('yeaahhhhhhhh*********');
                 const allProducts = yield new product_service_1.default().getAll();
                 return res.status(200).json(allProducts);
             }

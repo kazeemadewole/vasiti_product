@@ -6,8 +6,8 @@ export interface IProductModel {
 product_name: string;
 product_description: string;
 product_varieties: object;
-date_uploaded: string;
-date_edited: string | null
+date_uploaded?: string;
+date_edited?: string | null
 }
 
 export interface IUpdateProductModel {
@@ -15,8 +15,8 @@ id:string;
 product_name: string;
 product_description: string;
 product_varieties: object;
-date_uploaded: string;
-date_edited: string | null
+date_uploaded?: string;
+date_edited?: string | null
 }
 
 class productModel extends ObjectionModel implements IProductModel {

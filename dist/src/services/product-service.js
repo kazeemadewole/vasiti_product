@@ -12,7 +12,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const product_1 = __importDefault(require("src/repository/product"));
+const product_1 = __importDefault(require("../repository/product"));
 class ProductService {
     getAll() {
         return __awaiter(this, void 0, void 0, function* () {
