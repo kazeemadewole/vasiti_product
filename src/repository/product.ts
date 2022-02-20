@@ -1,4 +1,4 @@
-import productModel, { IProductModel } from "@models/product-model";
+import productModel, { IProductModel } from "../models/product-model";
 import { UtilService } from "../utils/utilservice";
 
 
